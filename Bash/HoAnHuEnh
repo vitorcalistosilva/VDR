@@ -1,0 +1,6 @@
+#! /bin/sh -
+HoAnHuEnh="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/HomerAnnotationsHumanEnhs_08.10.2019"
+cat $HoAnHuEnh | sort -u | sed '/^$/d' | wc -l
+cat $HoAnHuEnh | sort -u | grep -i "intron" | sort -u | sed '/^$/d' | wc -l
+cat $HoAnHuEnh | grep -i "intergenic" | sort -u | sed '/^$/d' | wc -l
+cat $HoAnHuEnh | grep -iEv "intron|intergenic" | sort -u | sed '/^$/d' | wc -l

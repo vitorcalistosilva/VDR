@@ -1,0 +1,3 @@
+#! /bin/sh -
+HoZFGenesUn="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/enahncer_distribuition_danrer10"
+cut -f16 $HoZFGenesUn | sort -u | sed '/^$/d' | wc -l

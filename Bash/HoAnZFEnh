@@ -1,0 +1,6 @@
+#! /bin/sh -
+HoAnZFEnh="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/enahncer_distribuition_danrer10"
+cat $HoAnZFEnh | sort -u | sed '/^$/d' | wc -l
+cat $HoAnZFEnh | grep -i "intron" | sort -u | sed '/^$/d' | wc -l
+cat $HoAnZFEnh | grep -i "intergenic" | sort -u | sed '/^$/d' | wc -l
+cat $HoAnZFEnh | grep -iEv "intron|intergenic" | sort -u | sed '/^$/d' | wc -l

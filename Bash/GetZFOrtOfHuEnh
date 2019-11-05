@@ -1,0 +1,6 @@
+#! /bin/sh -
+Hufile="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/Human_genames_intronicEnhs.txt"
+HomolFile="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/ZFhuman_Orthologs_mart_export_08.10.2019.txt"
+ZFOut="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/ZebrafishOrthologs_HuintronicEnhs.txt"
+Get_ZebrafishOrthologs_Humangenename="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/Get_ZebrafishOrthologs_Humangenename.R"
+Rscript $Get_ZebrafishOrthologs_Humangenename $Hufile $HomolFile $ZFOut

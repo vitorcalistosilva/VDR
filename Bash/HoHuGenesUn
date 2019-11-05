@@ -1,0 +1,3 @@
+#! /bin/sh -
+HoHuGenesUn="/Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/HomerAnnotationsHumanEnhs_08.10.2019"
+cut -f16 $HoHuGenesUn | sort -u | sed '/^$/d' | wc -l
