@@ -50,6 +50,28 @@ length(GsInterg)
 Rat3=length(GsInterg)/length(HHmlgs)
 #0.5294
 
+intersect of human homologs with intronic  enhs and also intergenic enhs:
+GsIntroInter=intersect(GsIntron,GsInterg)
+length(GsIntroInter)
+#688
+
+#check for intersection of intronic with intergenic
+Int=is.element(GsInterg,GsIntron)
+#which(Int)
+length(Int)
+#847
+HowmanyInt=grep(pattern = "TRUE", x  = Int, ignore.case = TRUE)
+length(HowmanyInt)
+#688
+
+#and vice-versa
+Inti=is.element(GsIntron,GsInterg)
+length(Inti)
+#1356
+HowmanyInti=grep(pattern = "TRUE", x  = Inti, ignore.case = TRUE)
+length(HowmanyInti)
+#688
+
 ###
 #other genes in homer annotations for human: genes in human w/o intronic enhs in zf
 OtherGs=unique(HomerTab$`Gene Name`[-Idx])
@@ -89,11 +111,14 @@ length(OtherInt)
 OtherHowmanyInt=grep(pattern = "TRUE", x  = OtherInt, ignore.case = TRUE)
 length(OtherHowmanyInt)
 #4353
+#"simpler" way to do lines87-92:
+OtherInt2=intersect(GsOtherInterg,GsOtherIntron)
+length(OtherInt2)
 
 #and vice-versa
 OtherInti=is.element(GsOtherIntron,GsOtherInterg)
 length(OtherInti)
-#113392
+#11392
 OtherHowmanyInti=grep(pattern = "TRUE", x  = OtherInti, ignore.case = TRUE)
 length(OtherHowmanyInti)
 #4353
@@ -124,25 +149,6 @@ ZFGsInterg=unique(HomerTabZF$`Gene Name`[IdxZF[IdxIntergZF]])
 length(ZFGsInterg)
 #696
 #30.73%
-
-#check for intersection of intronic with intergenic
-Int=is.element(GsInterg,GsIntron)
-#which(Int)
-length(Int)
-#847
-HowmanyInt=grep(pattern = "TRUE", x  = Int, ignore.case = TRUE)
-length(HowmanyInt)
-#688
-
-#and vice-versa
-Inti=is.element(GsIntron,GsInterg)
-length(Inti)
-#1356
-HowmanyInti=grep(pattern = "TRUE", x  = Inti, ignore.case = TRUE)
-length(HowmanyInti)
-#688
-
-#
 
 ####NEXT:
 ##check for intergenic enhnancers in the other genes that do not have intronic enhs

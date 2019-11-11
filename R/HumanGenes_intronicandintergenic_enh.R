@@ -26,15 +26,23 @@ Hu_genename_Idx=which(Hu_HomerTab$`Gene Name`%in%Hu_GsIntron)
 Hu_IdxInterg=grep(pattern = "intergenic",x = Hu_HomerTab$Annotation[Hu_genename_Idx],ignore.case =T)
 #look for "intergenic" in these annotations
 
-Hu_GsInterg=unique(Hu_HomerTab$`Gene Name`[Hu_IdxInterg])
+#####---->HERERER: this part is not right, because above (l27), you are already subsetting the full table by using [Hu_genename_Idx], so then in the next step, 
+#you need to keep that consistent, see l40
+#Hu_GsInterg=unique(Hu_HomerTab$`Gene Name`[Hu_IdxInterg])
 #human genes with intronic enhs
 
-length(Hu_GsInterg)
+#length(Hu_GsInterg)
 #how many genes? 9443
 
-(length(Hu_GsInterg)*100)/length(Hu_GsIntron)
+#(length(Hu_GsInterg)*100)/length(Hu_GsIntron)
 #ratio of genes with intronic enhancers that also have intergenic enhancers 74.07436
+######<-----
 
+Hu_GsInterg2=unique(Hu_HomerTab$`Gene Name`[Hu_genename_Idx[Hu_IdxInterg]])
+length(Hu_GsInterg2)
+#5041
+(length(Hu_GsInterg2)*100)/length(Hu_GsIntron)
+#39.54
 ###
 #in the terminal wc -l /Users/vitorcalistosilva/Documents/Zebrafish-i3S/Masters_Zebrafish/Docs/Chip_without_TSS_whole_hg19.peaks.liftOver2_hg38.bed
 #it gives how many genes there are in this file, in this case 102517

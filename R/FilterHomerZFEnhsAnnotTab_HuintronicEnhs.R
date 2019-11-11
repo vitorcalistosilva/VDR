@@ -33,6 +33,7 @@ ZFIdxIntron=grep(pattern = "intron",x = ZFAnnotHmlgs,ignore.case = T)
 
 #human genes with intronic enhs
 ZFGsIntron=unique(ZFHomerTab$`Gene Name`[ZFIdx[ZFIdxIntron]])
+length(ZFGsIntron)
 #how many genes? length(GsIntron)
 #1387
 
@@ -52,6 +53,9 @@ ZFRat3=length(ZFGsInterg)/length(ZFHHmlgs)
 #0.5874625
 
 ###
+#intersect of ZF homologs with intronic enhs and also intergenic enhs:
+ZFGsIntroInter=intersect(ZFGsIntron,ZFGsInterg)
+length(ZFGsIntroInter)
 
 #check for intersection of intronic with intergenic
 ZFInt=is.element(ZFGsInterg,ZFGsIntron)
@@ -99,6 +103,10 @@ length(ZFIdxOtherInterg)
 ZFGsOtherInterg=unique(ZFHomerTab$`Gene Name`[-ZFIdx][ZFIdxOtherInterg])
 length(ZFGsOtherInterg)
 #1743
+
+#intersect of ZF other genes with intronic enhs and also intergenic enhs:
+ZFGsOtherIntroInter=intersect(ZFGsOtherIntron,ZFGsOtherInterg)
+length(ZFGsOtherIntroInter)
 
 #ratio of genes with intronic enhs in human to the total set of genes w/o those whose homologs in zf have intronic enhs
 ZFRat4=length(ZFGsOtherInterg)/length(ZFOtherGs)
